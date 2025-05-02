@@ -1,6 +1,6 @@
 # Sistema de Monitoreo de Plagas 
 
-Proyecto educativo en Python para monitoreo de plagas. Aplica conceptos fundamentales:
+Proyecto educativo en Python para monitoreo de plagas. Aplicando conceptos fundamentales:
 
 ## Conceptos Aplicados
 - Variables, tipos de datos
