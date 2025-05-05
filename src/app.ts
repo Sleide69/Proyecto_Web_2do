@@ -1,54 +1,84 @@
-let nombre_variable: string='inicialisacion'
+import { createTypeReferenceDirectiveResolutionCache, escapeLeadingUnderscores } from "typescript";
 
-console.log(nombre_variable)
+let saludo:string = "hello world"
+console.log(saludo)
 
-const estudiante: IEstudiante={
-    id:1,
-    nombre:'pepillo',
-    edad:22,
-    tipo_sangre:'AB+',
-    donante:true,
-    calificacion:7.5,
+const student: Istudent={
+    id:1102,
+    nombre:'Fab',
+    correo:'fabianaa@gmail.com',
+    direccion:'su casa',
 }
 
-interface IEstudiante{
-    id:number,
-    nombre:string,
-    edad:number,
-    tipo_sangre:string,
-    donante:boolean,
-    calificacion?:number,
+interface Istudent {
+    id:number;
+    nombre:string;
+    correo:string;
+    direccion:string;
+    calificacion?:number; //el ? significa que calificaciones esta en el sistema pero no es "obligatorio"
 }
 
-const estudiantes: IEstudiante[]=[
+const students:Istudent[]=[
     {
-    id:1,
-    nombre:'pepillo',
-    edad:22,
-    tipo_sangre:'AB+',
-    donante:true,
-    calificacion:7.5,
-    },
-
-    {
-    id:2,
-    nombre:'Ermeldegilda',
-    edad:20,
-    tipo_sangre:'O+',
-    donante:false,
-    calificacion:8.2,
-    },
-
-    {
-    id:3,
-    nombre:'Ruberto',
-    edad:19,
-    tipo_sangre:'B+',
-    donante:true,
-    calificacion:6,   
-    },
+        id:1102,
+        nombre:'fab',
+        correo: 'fabianaa@gmail.com',
+        direccion:'su casa',
+    }
 ]
-estudiantes.push({id:1, nombre:'pepillo',edad:22,tipo_sangre:'AB+',donante:true,calificacion:7.5})
-estudiantes.push(estudiante);
+students.push({id:1102, nombre:"fab", correo:"fabianaa@gmail.com", direccion:"en mi casa"});
 
-function agregar(estudiantes);
+students.push(student)
+
+function agregar(student: Istudent):void{
+    students.push(student);
+}
+
+const estudiante1:Istudent={id:2, nombre:'', correo:'', direccion:''}
+agregar(student)
+
+function agregar2(parm:Istudent, callback:(student:Istudent)=>void)
+{
+    students.push(parm)
+    callback(parm)
+}
+
+const estudianteA2: Istudent = {id:2, nombre:'', correo:'', direccion:''}
+
+agregar2(estudianteA2, (parm:Istudent)=>console.log);
+
+function agregar3(parm:Istudent):Promise<Istudent>
+{
+    return new Promise((resolve)=>{
+        students.push(parm);
+        setTimeout(()=>{
+            resolve(parm)
+
+        },
+        1000
+        )
+    },
+    )
+    
+}
+
+agregar3(estudiante1).then((Istudent)=>
+{
+    console.log(student);
+})
+
+
+/*async function main() {
+    try
+    {
+        await agregar3(estudiante1)
+    }
+    catch(ex){
+
+    }
+    finally
+    {
+
+    }
+}
+main()*/
