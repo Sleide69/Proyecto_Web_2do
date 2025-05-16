@@ -82,21 +82,44 @@
     }
 }
 main()*/
-import { log } from "console";
-import { consult, consultALL, deleteuser, insertarUser, update } from "./crud";
-import {iniciar}from './database'
+// import { log } from "console";
+// import { consult, consultALL, deleteuser, insertarUser, update } from "./crud";
+// import {iniciar}from './database'
+
+// async function main() {
+//     await iniciar()
+//     const walter = await insertarUser ("Walter", "Walter@gmail.com", 12345)
+//     // console.log(walter)
+//     const newuser = await consultALL();
+//     console.log("usuario consultado: ", newuser);
+//     const userOne= await consult(walter.id)
+//     console.log(userOne)
+//     const userupdata=await update(walter.id,"Juan","Perris");
+//     console.log(userupdata)   
+//     const userdelete= await deleteuser(walter.id);
+//     console.log(userdelete)
+// }
+// main ()
+import { consultarPorId, consultarTodos, eliminarUsuario, insertarUsuario, actualizarUsuario } from "./crud";
+import { iniciar } from "./database";
 
 async function main() {
-    await iniciar()
-    const walter = await insertarUser ("Walter", "Walter@gmail.com", 12345)
-    // console.log(walter)
-    const newuser = await consultALL();
-    console.log("usuario consultado: ", newuser);
-    const userOne= await consult(walter.id)
-    console.log(userOne)
-    const userupdata=await update(walter.id,"Juan","Perris");
-    console.log(userupdata)   
-    const userdelete= await deleteuser(walter.id);
-    console.log(userdelete)
+    await iniciar();
+
+    const nuevo = await insertarUsuario("Walter", "walter@gmail.com");
+    console.log("Insertado:", nuevo);
+
+    const todos = await consultarTodos();
+    console.log("Todos:", todos);
+
+    const uno = await consultarPorId(nuevo.id);
+    console.log("Uno:", uno);
+
+    const actualizado = await actualizarUsuario(nuevo.id, "Juan", "perris@gmail.com");
+    console.log("Actualizado:", actualizado);
+
+    const eliminado = await eliminarUsuario(nuevo.id);
+    console.log("Eliminado:", eliminado);
 }
-main ()
+
+main();
