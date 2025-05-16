@@ -1,4 +1,4 @@
-import { appDataSource } from "./data-source";
+import { appDataSource } from "./config/data-source";
 import { Usuario } from "./models/user";
 
 export const insertarUsuario = async (nombre: string, correo: string) => {

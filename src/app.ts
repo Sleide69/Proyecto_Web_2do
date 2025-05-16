@@ -102,9 +102,20 @@ main()*/
 // main ()
 
 // import { consultarPorId, consultarTodos, eliminarUsuario, insertarUsuario, actualizarUsuario } from "../crud";
-import { iniciar } from "../database";
-import { appDataSource } from '../data-source'
-import { detectarPlagaPorSintomas } from "./detector";
+import { iniciar } from "./database";
+import { appDataSource } from './config/data-source'
+import { detectarPlagaPorSintomas } from "./services/detector";
+import express from 'express';
+import { crearCaptura } from './controllers/captura.controller';
+
+const app = express();
+app.use(express.json());
+
+app.post('/api/capturas', crearCaptura);
+
+app.listen(3000, () => {
+  console.log('🚀 Servidor corriendo en http://localhost:3000');
+});
 
 
 appDataSource.initialize().then(() => {

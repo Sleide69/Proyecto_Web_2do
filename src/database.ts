@@ -1,4 +1,4 @@
-import { appDataSource } from './data-source'
+import { appDataSource } from './config/data-source'
 import 'reflect-metadata'
 
 export const iniciar = async () => {

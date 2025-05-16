@@ -1,8 +1,8 @@
-import 'reflect-metadata'
-import { DataSource } from 'typeorm'
-import { Usuario } from './models/user'
-import { View } from './models/view'
-import { Plaga } from './models/plaga'
+import { DataSource } from 'typeorm';
+import { Plaga } from '../entities/Plaga';
+import { Captura } from '../entities/Captura';
+import { ProcesamientoIA } from '../entities/ProcesamientoIA';
+import { Notificacion } from '../entities/Notificacion';
 
 export const appDataSource = new DataSource({
   type: 'postgres',
@@ -13,7 +13,7 @@ export const appDataSource = new DataSource({
   database: 'plagasdb',
   synchronize: true,
   logging: true,
-  entities: [Usuario, View, Plaga],
+  entities: [Plaga, Captura, ProcesamientoIA, Notificacion],
 })
 
 

@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { View } from "./view";
-import { Plaga } from "./plaga"; // Agrega esta línea
+import { Plaga } from "../entities/Plaga"; // Agrega esta línea
 
 @Entity()
 export class Usuario {

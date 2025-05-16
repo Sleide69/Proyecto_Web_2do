@@ -1,18 +1,18 @@
-import { appDataSource } from "../data-source";
-import { Plaga } from "./plaga";
+import { appDataSource } from "../config/data-source";
+import { Plaga } from "../entities/Plaga";
 
 // Crear plaga
-export const insertarPlaga = async (nombre: string, descripcion: string, sintomas: string, tratamiento: string, imagenReferencia?: string, severidad?: string) => {
-  const plaga = new Plaga();
-  plaga.nombre = nombre;
-  plaga.descripcion = descripcion;
-  plaga.sintomas = sintomas;
-  plaga.tratamiento = tratamiento;
-  plaga.imagenReferencia = imagenReferencia ?? '';
-  plaga.severidad = severidad ?? 'moderada';
+// export const insertarPlaga = async (nombre: string, descripcion: string, sintomas: string, tratamiento: string, imagenReferencia?: string, severidad?: string) => {
+//   const plaga = new Plaga();
+//   plaga.nombre = nombre;
+//   plaga.descripcion = descripcion;
+//   plaga.sintomas = sintomas;
+//   plaga.tratamiento = tratamiento;
+//   plaga.imagenReferencia = imagenReferencia ?? '';
+//   plaga.severidad = severidad ?? 'moderada';
 
-  return await appDataSource.manager.save(plaga);
-}
+//   return await appDataSource.manager.save(plaga);
+// }
 
 // Obtener todas las plagas
 export const obtenerPlagas = async () => {
