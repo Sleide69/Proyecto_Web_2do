@@ -1,0 +1,2 @@
+todo sobre la actividad referente a mi modulo se encuentra en la carpeta de src, solo ejecute en la terminal "npm run start"
+y podra revisar el funcionamiento.
