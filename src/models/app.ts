@@ -100,26 +100,37 @@ main()*/
 //     console.log(userdelete)
 // }
 // main ()
-import { consultarPorId, consultarTodos, eliminarUsuario, insertarUsuario, actualizarUsuario } from "./crud";
-import { iniciar } from "./database";
+
+// import { consultarPorId, consultarTodos, eliminarUsuario, insertarUsuario, actualizarUsuario } from "../crud";
+import { iniciar } from "../database";
+import { appDataSource } from '../data-source'
+import { detectarPlagaPorSintomas } from "./detector";
+
+
+appDataSource.initialize().then(() => {
+  console.log('DB conectada correctamente')
+})
 
 async function main() {
     await iniciar();
 
-    const nuevo = await insertarUsuario("Walter", "walter@gmail.com");
-    console.log("Insertado:", nuevo);
+    // const nuevo = await insertarUsuario("Walter", "walter@gmail.com");
+    // console.log("Insertado:", nuevo);
 
-    const todos = await consultarTodos();
-    console.log("Todos:", todos);
+    const posiblesPlagas = await detectarPlagaPorSintomas("hojas amarillas con puntos negros");
+    console.log("Coincidencias encontradas:", posiblesPlagas);
 
-    const uno = await consultarPorId(nuevo.id);
-    console.log("Uno:", uno);
+    // const todos = await consultarTodos();
+    // console.log("Todos:", todos);
 
-    const actualizado = await actualizarUsuario(nuevo.id, "Juan", "perris@gmail.com");
-    console.log("Actualizado:", actualizado);
+    // const uno = await consultarPorId(nuevo.id);
+    // console.log("Uno:", uno);
 
-    const eliminado = await eliminarUsuario(nuevo.id);
-    console.log("Eliminado:", eliminado);
+    // const actualizado = await actualizarUsuario(nuevo.id, "Juan", "perris@gmail.com");
+    // console.log("Actualizado:", actualizado);
+
+    // const eliminado = await eliminarUsuario(nuevo.id);
+    // console.log("Eliminado:", eliminado);
 }
 
 main();

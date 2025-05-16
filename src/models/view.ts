@@ -1,5 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Usuario } from "./user";
+import { Plaga } from "./plaga";
 
 @Entity()
 export class View {
@@ -11,6 +12,11 @@ export class View {
 
     @ManyToOne(() => Usuario, (usuario) => usuario.vistas)
     usuario!: Usuario;
+
+
+    @ManyToOne(() => Plaga, (plaga: Plaga) => plaga.vistas)
+    plaga!: Plaga;
+
 }
 
 // import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm"

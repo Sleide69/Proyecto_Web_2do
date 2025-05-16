@@ -1,14 +1,15 @@
-import {appDataSource}from './data-source'
+import { appDataSource } from './data-source'
 import 'reflect-metadata'
 
 export const iniciar = async () => {
-    try {
-        await appDataSource.initialize();
-        console.log("Base de datos iniciada");
-    } catch (ex) {
-        console.error("Error al iniciar la base de datos", ex);
-    }
-};
+  try {
+    await appDataSource.initialize();
+    console.log("📦 Base de datos conectada correctamente.");
+  } catch (error) {
+    console.error("❌ Error al conectar la base de datos:", error);
+  }
+}
+
 
 // export const iniciar= async()=>{
 //     try{

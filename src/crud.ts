@@ -1,5 +1,5 @@
 import { appDataSource } from "./data-source";
-import { Usuario } from "../src/models/user";
+import { Usuario } from "./models/user";
 
 export const insertarUsuario = async (nombre: string, correo: string) => {
     const usuario = new Usuario();
