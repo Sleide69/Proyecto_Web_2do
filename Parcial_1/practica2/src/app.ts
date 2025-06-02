@@ -106,15 +106,17 @@ import express from 'express';
 import { appDataSource } from './config/data-source';
 import { iniciar } from './database';
 import { detectarPlagaPorSintomas } from './services/detector';
-import usuarioController from './controllers/usuario.controller';
-import { crearCaptura } from './controllers/captura.controller';
+
+// Importar rutas
+import usuarioRoutes from './routes/usuarioRoutes';
+import capturaRoutes from './routes/capturaRoutes'; // ← Opcional si lo modularizas
 
 const servidor = express();
 servidor.use(express.json());
 
-servidor.post("/api/login", usuarioController.loginUsuario);
-servidor.post("/api/register", usuarioController.registrarUsuario);
-servidor.post("/api/capturas", crearCaptura);
+// Registrar rutas
+servidor.use("/api/usuario", usuarioRoutes); // Tendrás: /api/usuario/login y /api/usuario/registrar
+servidor.use("/api/capturas", capturaRoutes); // ← Si modularizas capturas
 
 servidor.listen(3000, () => {
   console.log("🚀 Servidor corriendo en http://localhost:3000");
@@ -131,6 +133,7 @@ async function main() {
 }
 
 main();
+
 
     // const nuevo = await insertarUsuario("Walter", "walter@gmail.com");
     // console.log("Insertado:", nuevo);
