@@ -7,6 +7,6 @@ const router = Router();
 router.post('/registrar', registrarUsuario);
 
 // Ruta para login
-router.get('/login', loginUsuario  );
+router.get('/login', loginUsuario);
 
 export default router;
