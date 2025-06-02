@@ -1,38 +1,61 @@
-import { appDataSource } from "./config/data-source";
-import { Usuario } from "./models/user";
+// import { appDataSource } from "./config/data-source";
+// import { Usuario } from "./entities/usuario";
 
-export const insertarUsuario = async (nombre: string, correo: string) => {
-    const usuario = new Usuario();
-    usuario.nombre = nombre;
-    usuario.correo = correo;
-    return await appDataSource.manager.save(usuario);
-};
+// export const insertarUsuario = async (nombre: string, correo: string) => {
+//     const usuario = new Usuario();
+//     usuario.nombre = nombre;
+//     usuario.correo = correo;
+//     return await appDataSource.manager.save(usuario);
+// };
 
-export const consultarTodos = async () => {
-    return await appDataSource.manager.find(Usuario, { relations: ['vistas'] });
-};
+// export const consultarTodos = async () => {
+//     return await appDataSource.manager.find(Usuario, { relations: ['vistas'] });
+// };
 
-export const consultarPorId = async (id: number) => {
-    return await appDataSource.manager.findOne(Usuario, { where: { id }, relations: ['vistas'] });
-};
+// export const consultarPorId = async (id: number) => {
+//     return await appDataSource.manager.findOne(Usuario, { where: { id }, relations: ['vistas'] });
+// };
 
-export const actualizarUsuario = async (id: number, nombre: string, correo: string) => {
-    const usuario = await consultarPorId(id);
-    if (usuario) {
-        usuario.nombre = nombre;
-        usuario.correo = correo;
-        return await appDataSource.manager.save(usuario);
-    }
-    return null;
-};
+// export const actualizarUsuario = async (id: number, nombre: string, correo: string) => {
+//     const usuario = await consultarPorId(id);
+//     if (usuario) {
+//         usuario.nombre = nombre;
+//         usuario.correo = correo;
+//         return await appDataSource.manager.save(usuario);
+//     }
+//     return null;
+// };
 
-export const eliminarUsuario = async (id: number) => {
-    const usuario = await consultarPorId(id);
-    if (usuario) {
-        return await appDataSource.manager.remove(usuario);
-    }
-    return null;
-};
+// export const eliminarUsuario = async (id: number) => {
+//     const usuario = await consultarPorId(id);
+//     if (usuario) {
+//         return await appDataSource.manager.remove(usuario);
+//     }
+//     return null;
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { View } from "typeorm";
 // import {appDataSource} from "./data-source";
 // import { User } from "./models/user";

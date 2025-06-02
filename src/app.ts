@@ -102,36 +102,39 @@ main()*/
 // main ()
 
 // import { consultarPorId, consultarTodos, eliminarUsuario, insertarUsuario, actualizarUsuario } from "../crud";
-import { iniciar } from "./database";
-import { appDataSource } from './config/data-source'
-import { detectarPlagaPorSintomas } from "./services/detector";
 import express from 'express';
+import { appDataSource } from './config/data-source';
+import { iniciar } from './database';
+import { detectarPlagaPorSintomas } from './services/detector';
+import usuarioController from './controllers/usuario.controller';
 import { crearCaptura } from './controllers/captura.controller';
 
-const app = express();
-app.use(express.json());
+const servidor = express();
+servidor.use(express.json());
 
-app.post('/api/capturas', crearCaptura);
+servidor.post("/api/login", usuarioController.loginUsuario);
+servidor.post("/api/register", usuarioController.registrarUsuario);
+servidor.post("/api/capturas", crearCaptura);
 
-app.listen(3000, () => {
-  console.log('🚀 Servidor corriendo en http://localhost:3000');
+servidor.listen(3000, () => {
+  console.log("🚀 Servidor corriendo en http://localhost:3000");
 });
 
-
 appDataSource.initialize().then(() => {
-  console.log('DB conectada correctamente')
-})
+  console.log('📦 DB conectada correctamente');
+});
 
 async function main() {
-    await iniciar();
+  await iniciar();
+  const posiblesPlagas = await detectarPlagaPorSintomas("hojas amarillas con puntos negros");
+  console.log("Coincidencias encontradas:", posiblesPlagas);
+}
+
+main();
 
     // const nuevo = await insertarUsuario("Walter", "walter@gmail.com");
     // console.log("Insertado:", nuevo);
-
-    const posiblesPlagas = await detectarPlagaPorSintomas("hojas amarillas con puntos negros");
-    console.log("Coincidencias encontradas:", posiblesPlagas);
-
-    // const todos = await consultarTodos();
+  // const todos = await consultarTodos();
     // console.log("Todos:", todos);
 
     // const uno = await consultarPorId(nuevo.id);
@@ -142,6 +145,4 @@ async function main() {
 
     // const eliminado = await eliminarUsuario(nuevo.id);
     // console.log("Eliminado:", eliminado);
-}
-
-main();
+  

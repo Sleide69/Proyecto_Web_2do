@@ -3,6 +3,7 @@ import { Plaga } from '../entities/Plaga';
 import { Captura } from '../entities/Captura';
 import { ProcesamientoIA } from '../entities/ProcesamientoIA';
 import { Notificacion } from '../entities/Notificacion';
+import { Usuario } from '../entities/usuario';
 
 export const appDataSource = new DataSource({
   type: 'postgres',
@@ -13,7 +14,7 @@ export const appDataSource = new DataSource({
   database: 'plagasdb',
   synchronize: true,
   logging: true,
-  entities: [Plaga, Captura, ProcesamientoIA, Notificacion],
+  entities: [Plaga, Captura, ProcesamientoIA, Notificacion, Usuario],
 })
 
 
