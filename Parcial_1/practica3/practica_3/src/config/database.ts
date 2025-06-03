@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import { TypeORMPlaga } from "../infrastructure/orm-typeorm/entities/PlagaEntity.ts";
+import { TypeORMPlaga } from "../infrastructure/orm-typeorm/entities/PlagaEntity.ts.js";
 import dotenv from "dotenv";
 dotenv.config();
 
