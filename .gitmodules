@@ -1,3 +1,6 @@
 [submodule "Parcial_1/practica3/ASW-2025-1"]
 	path = Parcial_1/practica3/ASW-2025-1
 	url = https://github.com/joancema/ASW-2025-1
+[submodule "Parcial_1/practica1/Aplicacion-para-el-servidor-web"]
+	path = Parcial_1/practica1/Aplicacion-para-el-servidor-web
+	url = https://github.com/KristhianBello/Aplicacion-para-el-servidor-web
