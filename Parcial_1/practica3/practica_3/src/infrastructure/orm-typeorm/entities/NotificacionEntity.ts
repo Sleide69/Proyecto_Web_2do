@@ -3,14 +3,14 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity('notificaciones')
 export class NotificacionEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  mensaje: string;
+  mensaje!: string;
 
   @Column()
-  usuarioEmail: string;
+  usuarioEmail!: string;
 
   @Column()
-  fecha: Date;
+  fecha!: Date;
 }

@@ -3,14 +3,14 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 @Entity("plagas")
 export class PlagaEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  nombre: string;
+  nombre!: string;
 
   @Column()
-  descripcion: string;
+  descripcion!: string;
 
   @Column()
-  tipo: string;
+  tipo!: string;
 }

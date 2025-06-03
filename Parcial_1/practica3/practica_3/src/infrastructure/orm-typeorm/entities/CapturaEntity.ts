@@ -3,14 +3,14 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity('capturas')
 export class CapturaEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  imagenUrl: string;
+  imagenUrl!: string;
 
   @Column()
-  fecha: Date;
+  fecha!: Date;
 
   @Column()
-  plagaId: number;
+  plagaId!: number;
 }

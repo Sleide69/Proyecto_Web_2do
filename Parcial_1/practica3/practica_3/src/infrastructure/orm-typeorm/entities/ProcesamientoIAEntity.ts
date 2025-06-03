@@ -3,17 +3,17 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity('procesamientos_ia')
 export class ProcesamientoIAEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  capturaId: number;
+  capturaId!: number;
 
   @Column()
-  resultado: string;
+  resultado!: string;
 
   @Column()
-  modeloUsado: string;
+  modeloUsado!: string;
 
   @Column()
-  fecha: Date;
+  fecha!: Date;
 }
