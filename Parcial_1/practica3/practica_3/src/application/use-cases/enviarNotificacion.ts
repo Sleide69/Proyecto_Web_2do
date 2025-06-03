@@ -6,10 +6,12 @@ export class EnviarNotificacion {
   constructor(private readonly notificacionRepo: INotificacionRepository) {}
 
   async ejecutar(mensaje: string, capturaId: string): Promise<Notificacion> {
+    const destinatario = "defaultDestinatario"; // Replace with actual logic to determine destinatario
     const notificacion = new Notificacion(
       uuidv4(),
       mensaje,
       new Date(),
+      destinatario,
       false,
       capturaId
     );

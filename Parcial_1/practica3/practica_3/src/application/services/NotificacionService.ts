@@ -8,7 +8,7 @@ export class NotificacionService {
     return this.notiRepo.listar();
   }
 
-  async CrearNotificacion(notificacion: string): Promise<Notificacion[]> {
+  async crearNotificacion(notificacion: Notificacion): Promise<Notificacion> {
     return this.notiRepo.crear(notificacion);
   }
 }

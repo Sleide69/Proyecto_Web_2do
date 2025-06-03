@@ -22,6 +22,7 @@ export class DetectarPlaga {
       uuidv4(),
       capturaId,
       resultado,
+      0.95, // Valor de confianza simulado
       modeloUsado,
       new Date()
     );

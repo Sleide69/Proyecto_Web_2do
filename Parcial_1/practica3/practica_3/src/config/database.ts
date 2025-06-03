@@ -1,5 +1,8 @@
 import { DataSource } from "typeorm";
-import { TypeORMPlaga } from "../infrastructure/orm-typeorm/entities/PlagaEntity.ts.js";
+import { PlagaEntity } from "../infrastructure/orm-typeorm/entities/PlagaEntity.ts";
+import { CapturaEntity } from "../infrastructure/orm-typeorm/entities/CapturaEntity";
+import { NotificacionEntity } from "../infrastructure/orm-typeorm/entities/NotificacionEntity";
+import { ProcesamientoIAEntity } from "../infrastructure/orm-typeorm/entities/ProcesamientoIAEntity";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -12,5 +15,5 @@ export const AppDataSource = new DataSource({
   database: process.env.POSTGRES_DB,
   synchronize: true,
   logging: false,
-  entities: [TypeORMPlaga],
+  entities: [PlagaEntity, CapturaEntity, NotificacionEntity, ProcesamientoIAEntity],
 });

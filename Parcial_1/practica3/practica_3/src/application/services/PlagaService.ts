@@ -1,6 +1,7 @@
 import { IPlagaRepository } from "../../domain/repositories/IPlagaRepository";
 import { Plaga } from "../../domain/entities/Plaga";
 
+
 export class PlagaService {
   constructor(private readonly repo: IPlagaRepository) {}
 

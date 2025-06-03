@@ -13,11 +13,11 @@ export class CrearCaptura {
   }): Promise<Captura> {
     const nuevaCaptura = new Captura(
       uuidv4(),
-      data.urlImagen,
       data.fecha,
+      data.urlImagen,
       data.ubicacion,
-      data.plagaId
-    );
+      Number(data.plagaId)
+    );    
     return await this.capturaRepo.crear(nuevaCaptura);
   }
 }

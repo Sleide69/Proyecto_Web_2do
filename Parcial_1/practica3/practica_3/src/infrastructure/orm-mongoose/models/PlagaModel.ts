@@ -1,8 +1,9 @@
-import mongoose from 'mongoose';
+import { Schema, model } from "mongoose";
 
-const PlagaSchema = new mongoose.Schema({
-  nombre: String,
-  descripcion: String,
+const PlagaSchema = new Schema({
+  nombre: { type: String, required: true },
+  descripcion: { type: String, required: true },
+  tipo: { type: String, required: true },
 });
 
-export const PlagaModel = mongoose.model('Plaga', PlagaSchema);
+export const PlagaModel = model("Plaga", PlagaSchema);

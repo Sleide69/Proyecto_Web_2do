@@ -6,7 +6,8 @@ export class PlagaController {
 
   async crear(req: Request, res: Response): Promise<void> {
     try {
-      const nuevaPlaga = await this.plagaService.crear(req.body);
+      const { nombre, tipo, descripcion } = req.body;
+      const nuevaPlaga = await this.plagaService.crear(nombre, tipo, descripcion);
       res.status(201).json(nuevaPlaga);
     } catch (error) {
       res.status(500).json({ error: "Error al crear la plaga" });

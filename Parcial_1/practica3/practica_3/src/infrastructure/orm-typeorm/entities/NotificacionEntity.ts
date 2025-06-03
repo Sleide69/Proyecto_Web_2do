@@ -13,4 +13,10 @@ export class NotificacionEntity {
 
   @Column()
   fecha!: Date;
+
+  @Column()
+  enviada!: boolean;
+
+  @Column()
+  capturaId!: string;
 }

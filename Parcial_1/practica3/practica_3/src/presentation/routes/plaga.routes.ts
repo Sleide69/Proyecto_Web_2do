@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { PlagaController } from "../controllers/PlagaController";
 import { PlagaService } from "../../application/services/PlagaService";
-import { PlagaRepositoryTypeORM } from "../../infrastructure/orm-typeorm/repositories/PlagaTypeOrmRepository";
+import { PlagaTypeOrmRepository } from "../../infrastructure/orm-typeorm/repositories/PlagaTypeOrmRepository";
 import { PlagaRepositoryMongoose } from "../../infrastructure/orm-mongoose/repositories/PlagaMongooseRepository";
 
 const router = Router();
@@ -9,7 +9,7 @@ const router = Router();
 // Detectar qué ORM usar desde env
 const repo = process.env.DB_TYPE === "mongoose"
   ? new PlagaRepositoryMongoose()
-  : new PlagaRepositoryTypeORM();
+  : new PlagaTypeOrmRepository();
 
 const controller = new PlagaController(new PlagaService(repo));
 

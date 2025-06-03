@@ -16,4 +16,7 @@ export class ProcesamientoIAEntity {
 
   @Column()
   fecha!: Date;
+
+  @Column()
+  confianza!: number;
 }

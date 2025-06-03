@@ -1,11 +1,26 @@
-import express from "express";
 import dotenv from "dotenv";
-import plagaRoutes from "./presentation/routes/plaga.routes";
+dotenv.config(); // ✅ Debe ir antes que cualquier uso de process.env
+
+import express from "express";
 import "reflect-metadata";
+import plagaRoutes from "./presentation/routes/plaga.routes";
 import { AppDataSource } from "./shared/database/typeorm-datasource";
 
-// ...
+// Inicializar Express
+const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Middlewares y rutas
+app.use(express.json());
+
+// ✅ Ruta raíz para evitar error "Cannot GET /"
+app.get("/", (req, res) => {
+  res.send("API de detección de plagas funcionando correctamente 🌿");
+});
+
+app.use("/api/plagas", plagaRoutes);
+
+// Inicializar TypeORM y arrancar servidor
 AppDataSource.initialize()
   .then(() => {
     console.log("📦 TypeORM conectado correctamente");
@@ -17,11 +32,5 @@ AppDataSource.initialize()
   .catch((err) => {
     console.error("❌ Error al conectar con la base de datos TypeORM:", err);
   });
-
-dotenv.config();
-const app = express();
-
-app.use(express.json());
-app.use("/api/plagas", plagaRoutes);
 
 export default app;

@@ -13,4 +13,7 @@ export class CapturaEntity {
 
   @Column()
   plagaId!: number;
+
+  @Column()
+  ubicacion!: string;
 }
