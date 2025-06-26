@@ -7,3 +7,6 @@
 [submodule "Parcial_1/evaluacion/Examen4"]
 	path = Parcial_1/evaluacion/Examen4
 	url = https://github.com/joancema/Examen4
+[submodule "Parcial2/practica-2"]
+	path = Parcial2/practica-2
+	url = https://github.com/tuusuario/practica-2
