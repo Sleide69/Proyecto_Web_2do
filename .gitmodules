@@ -4,3 +4,6 @@
 [submodule "Parcial_1/practica1/Aplicacion-para-el-servidor-web"]
 	path = Parcial_1/practica1/Aplicacion-para-el-servidor-web
 	url = https://github.com/KristhianBello/Aplicacion-para-el-servidor-web
+[submodule "Parcial_1/evaluacion/Examen4"]
+	path = Parcial_1/evaluacion/Examen4
+	url = https://github.com/joancema/Examen4
