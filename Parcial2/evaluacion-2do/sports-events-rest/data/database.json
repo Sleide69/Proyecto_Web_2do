@@ -1,0 +1,47 @@
+{
+  "races": [
+    {
+      "id": "d572eb54-4b19-48ff-a269-55c224cd6176",
+      "name": "Maratón Ciudad 2024",
+      "description": "Maratón anual de la ciudad con recorrido por el centro histórico",
+      "type": "MARATHON",
+      "eventDate": "2025-12-15T08:00:00.000Z",
+      "registrationStartDate": "2025-08-01T00:00:00.000Z",
+      "registrationEndDate": "2025-12-10T23:59:59.000Z",
+      "location": "Plaza Central, Ciudad",
+      "distance": "42.195 km",
+      "maxParticipants": 500,
+      "registrationFee": 75,
+      "status": "OPEN_REGISTRATION",
+      "createdAt": "2025-08-04T15:36:15.422Z",
+      "updatedAt": "2025-08-04T15:55:26.377Z"
+    }
+  ],
+  "competitors": [
+    {
+      "id": "17b87ba7-d20a-4cb8-af60-2a3bf68e4b7f",
+      "firstName": "María",
+      "lastName": "González",
+      "email": "maria.gonzalez@email.com",
+      "phone": "+1234567890",
+      "shirtType": "COTTON",
+      "shirtSize": "M",
+      "createdAt": "2025-08-04T15:46:18.348Z",
+      "updatedAt": "2025-08-04T15:46:18.348Z"
+    }
+  ],
+  "payments": [],
+  "registrations": [
+    {
+      "id": "5815358e-caf9-47d6-a4c1-fcdb365ce22f",
+      "raceId": "d572eb54-4b19-48ff-a269-55c224cd6176",
+      "competitorId": "17b87ba7-d20a-4cb8-af60-2a3bf68e4b7f",
+      "status": "CONFIRMED",
+      "registrationDate": "2025-08-04T15:55:37.705Z",
+      "confirmationCode": "REG-6176-5CE22F",
+      "notes": "Primera participaci�n en marat�n",
+      "createdAt": "2025-08-04T15:55:37.705Z",
+      "updatedAt": "2025-08-04T15:55:37.705Z"
+    }
+  ]
+}

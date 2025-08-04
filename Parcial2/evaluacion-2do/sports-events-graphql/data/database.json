@@ -1,0 +1,19 @@
+{
+  "races": [],
+  "competitors": [
+    {
+      "id": "6bf93ea3-832c-4e1b-b451-e5cca9eb1fc2",
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "email": "juan.perez@email.com",
+      "phone": "+1234567890",
+      "shirtType": "COTTON",
+      "shirtSize": "M",
+      "createdAt": "2025-08-04T15:42:16.972Z",
+      "updatedAt": "2025-08-04T15:42:16.972Z",
+      "fullName": "Juan Pérez"
+    }
+  ],
+  "payments": [],
+  "registrations": []
+}

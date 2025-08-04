@@ -1,0 +1,66 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start REST API",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start:dev"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/sports-events-rest"
+			},
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Start GraphQL API",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start:dev"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/sports-events-graphql"
+			},
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Start WebSocket Server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start:dev"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/sports-events-websocket"
+			},
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Start All Services",
+			"dependsOrder": "parallel",
+			"dependsOn": [
+				"Start REST API",
+				"Start GraphQL API",
+				"Start WebSocket Server"
+			],
+			"group": "build"
+		}
+	]
+}

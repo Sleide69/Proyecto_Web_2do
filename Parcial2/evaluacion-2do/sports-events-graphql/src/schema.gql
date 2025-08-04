@@ -1,0 +1,259 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Competitor {
+  createdAt: DateTime!
+  email: String!
+  firstName: String!
+  fullName: String!
+  id: ID!
+  lastName: String!
+  phone: String!
+  shirtSize: ShirtSize!
+  shirtType: ShirtType!
+  updatedAt: DateTime!
+}
+
+input CreateCompetitorInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  phone: String!
+  shirtSize: ShirtSize!
+  shirtType: ShirtType!
+}
+
+input CreatePaymentInput {
+  amount: Float!
+  method: PaymentMethod!
+  transactionId: String
+}
+
+input CreateRaceInput {
+  description: String
+  distance: String!
+  eventDate: DateTime!
+  location: String!
+  maxParticipants: Float!
+  name: String!
+  registrationEndDate: DateTime!
+  registrationFee: Float!
+  registrationStartDate: DateTime!
+  status: RaceStatus
+  type: RaceType!
+}
+
+input CreateRegistrationInput {
+  competitor: CreateCompetitorInput!
+  notes: String
+  payment: CreatePaymentInput
+  raceId: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  """Cancelar una inscripción"""
+  cancelRegistration(id: ID!): Registration!
+
+  """Confirmar una inscripción"""
+  confirmRegistration(id: ID!): Registration!
+
+  """Crear un nuevo competidor"""
+  createCompetitor(input: CreateCompetitorInput!): Competitor!
+
+  """Crear una nueva carrera"""
+  createRace(input: CreateRaceInput!): Race!
+
+  """Crear una nueva inscripción"""
+  createRegistration(input: CreateRegistrationInput!): Registration!
+
+  """Eliminar un competidor"""
+  deleteCompetitor(id: ID!): Boolean!
+
+  """Eliminar una carrera"""
+  deleteRace(id: ID!): Boolean!
+
+  """Actualizar un competidor"""
+  updateCompetitor(id: ID!, input: UpdateCompetitorInput!): Competitor!
+
+  """Actualizar una carrera"""
+  updateRace(id: ID!, input: UpdateRaceInput!): Race!
+
+  """Actualizar el estado de una carrera"""
+  updateRaceStatus(id: ID!, status: RaceStatus!): Race!
+
+  """Actualizar una inscripción"""
+  updateRegistration(id: ID!, input: UpdateRegistrationInput!): Registration!
+}
+
+type Payment {
+  amount: Float!
+  createdAt: DateTime!
+  id: ID!
+  method: PaymentMethod!
+  paymentDate: DateTime
+  status: PaymentStatus!
+  transactionId: String
+  updatedAt: DateTime!
+}
+
+"""Métodos de pago disponibles"""
+enum PaymentMethod {
+  BANK_TRANSFER
+  CASH
+  CREDIT_CARD
+  DEBIT_CARD
+  PAYPAL
+}
+
+"""Estados del pago"""
+enum PaymentStatus {
+  CANCELLED
+  COMPLETED
+  FAILED
+  PENDING
+  PROCESSING
+  REFUNDED
+}
+
+type Query {
+  """Obtener carreras disponibles para registro"""
+  availableRaces: [Race!]!
+
+  """Obtener competidor por ID"""
+  competitor(id: ID!): Competitor!
+
+  """Obtener todos los competidores"""
+  competitors: [Competitor!]!
+
+  """Obtener carrera por ID"""
+  race(id: ID!): Race!
+
+  """Obtener todas las carreras"""
+  races: [Race!]!
+
+  """Obtener carreras por estado"""
+  racesByStatus(status: RaceStatus!): [Race!]!
+
+  """Obtener inscripción por ID"""
+  registration(id: ID!): Registration!
+
+  """Obtener todas las inscripciones"""
+  registrations: [Registration!]!
+
+  """Obtener inscripciones por carrera"""
+  registrationsByRace(raceId: ID!): [Registration!]!
+}
+
+type Race {
+  createdAt: DateTime!
+  description: String
+  distance: String!
+  eventDate: DateTime!
+  id: ID!
+  location: String!
+  maxParticipants: Float!
+  name: String!
+  registrationEndDate: DateTime!
+  registrationFee: Float!
+  registrationStartDate: DateTime!
+  status: RaceStatus!
+  type: RaceType!
+  updatedAt: DateTime!
+}
+
+"""Estados de la carrera"""
+enum RaceStatus {
+  CANCELLED
+  CLOSED_REGISTRATION
+  COMPLETED
+  IN_PROGRESS
+  OPEN_REGISTRATION
+  PLANNED
+}
+
+"""Tipos de carrera disponibles"""
+enum RaceType {
+  CYCLING
+  FIVE_K
+  HALF_MARATHON
+  MARATHON
+  TEN_K
+  TRAIL
+  TRIATHLON
+}
+
+type Registration {
+  competitor: Competitor
+  competitorId: String!
+  confirmationCode: String
+  createdAt: DateTime!
+  id: ID!
+  notes: String
+  payment: Payment
+  paymentId: String
+  race: Race
+  raceId: String!
+  registrationDate: DateTime!
+  status: RegistrationStatus!
+  updatedAt: DateTime!
+}
+
+"""Estados de la inscripción"""
+enum RegistrationStatus {
+  CANCELLED
+  COMPLETED
+  CONFIRMED
+  PENDING
+}
+
+"""Tallas de camiseta disponibles"""
+enum ShirtSize {
+  L
+  M
+  S
+  XL
+  XS
+  XXL
+}
+
+"""Tipos de camiseta disponibles"""
+enum ShirtType {
+  COTTON
+  COTTON_BLEND
+  DRI_FIT
+  POLYESTER
+}
+
+input UpdateCompetitorInput {
+  email: String
+  firstName: String
+  lastName: String
+  phone: String
+  shirtSize: ShirtSize
+  shirtType: ShirtType
+}
+
+input UpdateRaceInput {
+  description: String
+  distance: String
+  eventDate: DateTime
+  location: String
+  maxParticipants: Float
+  name: String
+  registrationEndDate: DateTime
+  registrationFee: Float
+  registrationStartDate: DateTime
+  status: RaceStatus
+  type: RaceType
+}
+
+input UpdateRegistrationInput {
+  notes: String
+  status: RegistrationStatus
+}
